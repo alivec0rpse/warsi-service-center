@@ -1,0 +1,5 @@
+# robots.txt for Warsi Service Center
+User-agent: *
+Allow: /
+
+Sitemap: https://warsi.qzz.io/sitemap-index.xml
