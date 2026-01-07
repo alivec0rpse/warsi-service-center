@@ -12,7 +12,8 @@ export default defineConfig({
   
   // Build configuration for optimal performance
   build: {
-    inlineStylesheets: 'auto',
+    inlineStylesheets: 'always',
+    assets: '_astro',
   },
   
   // Compression and optimization
@@ -20,4 +21,11 @@ export default defineConfig({
   
   // Output configuration
   output: 'static',
+  
+  // Vite configuration for asset handling
+  vite: {
+    build: {
+      assetsInlineLimit: 0,
+    },
+  },
 });
