@@ -143,11 +143,11 @@ import '../styles/global.css';
           </h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <!-- Contact Information -->
           <div class="card p-8 animate-on-scroll">
             <h3 class="font-display text-2xl font-semibold text-white mb-6 flex items-center gap-3">
-              <svg class="w-6 h-6 text-accent-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-6 h-6 text-accent-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               Contact Information
@@ -174,13 +174,21 @@ import '../styles/global.css';
                   warsi.qzz.io
                 </a>
               </div>
+              
+              <div>
+                <p class="text-gray-400 text-sm mb-2">Address</p>
+                <p class="text-white text-base">
+                  Warsi Service Center<br />
+                  Nainital, Uttarakhand, India
+                </p>
+              </div>
             </div>
           </div>
 
           <!-- What to Expect -->
           <div class="card p-8 animate-on-scroll" style="animation-delay: 0.1s;">
             <h3 class="font-display text-2xl font-semibold text-white mb-6 flex items-center gap-3">
-              <svg class="w-6 h-6 text-accent-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-6 h-6 text-accent-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               What to Expect
@@ -218,6 +226,52 @@ import '../styles/global.css';
                 <span class="text-gray-300">Friendly and helpful staff</span>
               </li>
             </ul>
+          </div>
+        </div>
+        
+        <!-- Location Map Section -->
+        <div class="card p-8 animate-on-scroll" style="animation-delay: 0.2s;">
+          <h3 class="font-display text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+            <svg class="w-6 h-6 text-accent-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            Our Location
+          </h3>
+          
+          <div class="relative w-full overflow-hidden rounded-lg border border-workshop-border" style="padding-bottom: 56.25%; height: 0;">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3480.9637984389!2d79.53940757615342!3d29.254018955586382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a09ba50c512d7f%3A0xdec385b6745cebe5!2sWarsi%20Service%20Center!5e0!3m2!1sen!2sin!4v1767801569207!5m2!1sen!2sin"
+              class="absolute top-0 left-0 w-full h-full"
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Warsi Service Center Location Map"
+            ></iframe>
+          </div>
+          
+          <div class="mt-6 flex items-start gap-3">
+            <svg class="w-5 h-5 text-accent-navy flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <div>
+              <p class="text-gray-400 text-sm mb-1">Address</p>
+              <p class="text-white font-medium">Warsi Service Center</p>
+              <p class="text-gray-300">Nainital, Uttarakhand, India</p>
+              <a 
+                href="https://www.google.com/maps/place/Warsi+Service+Center/@29.254019,79.5394076,17z/data=!3m1!4b1!4m6!3m5!1s0x39a09ba50c512d7f:0xdec385b6745cebe5!8m2!3d29.254019!4d79.5419825!16s%2Fg%2F11y6sm5sw8?entry=ttu&g_ep=EgoyMDI1MDEwNy4xIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-accent-navy-light hover:text-accent-navy transition-colors mt-2 text-sm font-medium"
+              >
+                Get Directions
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>
