@@ -30,7 +30,25 @@
   }
   
   .btn-primary {
-    @apply bg-accent-navy hover:bg-accent-navy-light text-white shadow-lg shadow-accent-navy/20 hover:shadow-accent-navy/40 hover:scale-105;
+    @apply bg-accent-navy hover:bg-accent-navy-light text-white shadow-lg shadow-accent-navy/20 hover:shadow-accent-navy/40 hover:scale-105 relative overflow-hidden;
+  }
+  
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+  
+  .btn-primary:hover::before {
+    width: 300px;
+    height: 300px;
   }
   
   .btn-secondary {
@@ -47,7 +65,7 @@
   }
   
   .card-hover {
-    @apply hover:border-accent-navy hover:shadow-lg hover:shadow-accent-navy/10 hover:-translate-y-1;
+    @apply hover:border-accent-navy hover:shadow-xl hover:shadow-accent-navy/20 hover:-translate-y-2 cursor-pointer;
   }
 
   /* Section styles */
@@ -90,10 +108,27 @@
 
   /* Glow effect */
   .glow-orange {
-    box-shadow: 0 0 20px rgba(30, 58, 138, 0.3);
+    box-shadow: 0 0 30px rgba(30, 58, 138, 0.4), 0 0 60px rgba(30, 58, 138, 0.2);
   }
   
   .glow-blue {
     box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  }
+  
+  /* Shimmer effect for highlights */
+  @keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+  }
+  
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(59, 130, 246, 0.1) 50%,
+      transparent 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 3s infinite;
   }
 }

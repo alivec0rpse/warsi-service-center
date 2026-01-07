@@ -7,8 +7,9 @@ import '../styles/global.css';
 ---
 
 <BaseLayout 
-  title="Warsi Service Center | Professional Automobile Service in Your Area"
-  description="Expert automobile service center offering denting, painting, mechanical repairs, custom modding, and more for cars, bikes, and scooters. Call 9756544613 for professional service."
+  title="Warsi Service Center | Car & Bike Service Since 1962 | Denting Painting Mechanical Repairs"
+  description="Professional automobile service center since 1962. Expert denting, painting, mechanical repairs, custom modding, AC works, and complete vehicle care for cars, bikes, and scooters. Call 9756544613 today!"
+  keywords="car service, bike service, automobile repair, denting painting, mechanical repairs, car modification, bike modification, AC repair, car wash, teflon coating, custom body kits, suspension setup, engine tuning, vehicle service center, auto repair shop, car garage, bike garage, warsi service center"
   currentPath="/"
 >
   <Header />
@@ -179,8 +180,8 @@ import '../styles/global.css';
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="text-center animate-on-scroll">
-          <div class="w-16 h-16 bg-accent-navy rounded-full flex items-center justify-center mx-auto mb-4">
+        <div class="text-center animate-on-scroll group cursor-pointer">
+          <div class="w-16 h-16 bg-accent-navy rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-accent-navy/50 transition-all duration-300">
             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
@@ -189,8 +190,8 @@ import '../styles/global.css';
           <p class="text-gray-400 text-sm">Professional service with guaranteed quality</p>
         </div>
 
-        <div class="text-center animate-on-scroll" style="animation-delay: 0.1s;">
-          <div class="w-16 h-16 bg-accent-navy-light rounded-full flex items-center justify-center mx-auto mb-4">
+        <div class="text-center animate-on-scroll group cursor-pointer" style="animation-delay: 0.1s;">
+          <div class="w-16 h-16 bg-accent-navy-light rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-accent-navy-light/50 transition-all duration-300">
             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
@@ -199,8 +200,8 @@ import '../styles/global.css';
           <p class="text-gray-400 text-sm">Quick turnaround without compromising quality</p>
         </div>
 
-        <div class="text-center animate-on-scroll" style="animation-delay: 0.2s;">
-          <div class="w-16 h-16 bg-accent-steel rounded-full flex items-center justify-center mx-auto mb-4">
+        <div class="text-center animate-on-scroll group cursor-pointer" style="animation-delay: 0.2s;">
+          <div class="w-16 h-16 bg-accent-navy-light rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-accent-navy-light/50 transition-all duration-300">
             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
@@ -209,8 +210,8 @@ import '../styles/global.css';
           <p class="text-gray-400 text-sm">Transparent pricing with no hidden costs</p>
         </div>
 
-        <div class="text-center animate-on-scroll" style="animation-delay: 0.3s;">
-          <div class="w-16 h-16 bg-accent-navy rounded-full flex items-center justify-center mx-auto mb-4">
+        <div class="text-center animate-on-scroll group cursor-pointer" style="animation-delay: 0.3s;">
+          <div class="w-16 h-16 bg-accent-navy rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-accent-navy/50 transition-all duration-300">
             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
             </svg>
@@ -225,7 +226,11 @@ import '../styles/global.css';
   <!-- CTA Section -->
   <section class="section bg-workshop-dark">
     <div class="container-custom px-4">
-      <div class="max-w-4xl mx-auto text-center card glow-orange p-12 animate-on-scroll">
+      <div class="max-w-4xl mx-auto text-center card glow-orange p-12 animate-on-scroll relative overflow-hidden">
+        <!-- Animated background shine -->
+        <div class="absolute inset-0 shimmer opacity-50"></div>
+        
+        <div class="relative z-10">
         <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">
           Ready to Get Your Vehicle Serviced?
         </h2>
@@ -245,6 +250,7 @@ import '../styles/global.css';
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </a>
+        </div>
         </div>
       </div>
     </div>
