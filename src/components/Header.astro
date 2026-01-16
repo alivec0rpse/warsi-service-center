@@ -13,7 +13,7 @@ const navItems = [
   <nav class="container-custom px-4 py-4">
     <div class="flex items-center justify-between">
       <!-- Logo/Brand -->
-      <a href="/" class="flex items-center gap-3 group">
+      <a href="/" id="logo-trigger" class="flex items-center gap-3 group">
         <img 
           src="/logo.png" 
           alt="Warsi Service Center Logo" 
@@ -102,4 +102,146 @@ const navItems = [
       menu?.classList.toggle('hidden');
     });
   });
+
+  // Easter egg - Bad Apple
+  let clickCount = 0;
+  let resetTimer: number;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const logoTrigger = document.getElementById('logo-trigger');
+    
+    logoTrigger?.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      clickCount++;
+      
+      // Reset counter after 2 seconds of no clicks
+      clearTimeout(resetTimer);
+      resetTimer = setTimeout(() => {
+        clickCount = 0;
+      }, 2000);
+      
+      // Trigger easter egg on 5th click
+      if (clickCount === 5) {
+        clickCount = 0;
+        showApplePopup();
+      }
+    });
+  });
+
+  function showApplePopup() {
+    // Create modal overlay
+    const overlay = document.createElement('div');
+    overlay.id = 'apple-modal';
+    overlay.className = 'fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-sm';
+    
+    // Create modal content
+    const modal = document.createElement('div');
+    modal.className = 'relative bg-workshop-darker border-2 border-accent-navy rounded-2xl p-8 max-w-md w-full mx-4 transform transition-all scale-95 opacity-0';
+    
+    // Apple SVG container
+    const appleContainer = document.createElement('div');
+    appleContainer.id = 'apple-container';
+    appleContainer.className = 'cursor-pointer hover:scale-105 transition-transform duration-300';
+    appleContainer.innerHTML = `
+      <svg id="whole-apple" class="w-48 h-48 mx-auto" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Leaf -->
+        <path d="M100 30 Q90 20 85 25 T100 40" fill="#22c55e" stroke="#16a34a" stroke-width="2"/>
+        <!-- Stem -->
+        <path d="M100 30 L100 50" stroke="#8b5a3c" stroke-width="4" stroke-linecap="round"/>
+        <!-- Apple body -->
+        <ellipse cx="100" cy="110" rx="60" ry="65" fill="#dc2626" stroke="#991b1b" stroke-width="3"/>
+        <!-- Highlight -->
+        <ellipse cx="75" cy="90" rx="20" ry="25" fill="#ef4444" opacity="0.6"/>
+      </svg>
+      
+      <svg id="bitten-apple" class="w-48 h-48 mx-auto hidden" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Leaf -->
+        <path d="M100 30 Q90 20 85 25 T100 40" fill="#22c55e" stroke="#16a34a" stroke-width="2"/>
+        <!-- Stem -->
+        <path d="M100 30 L100 50" stroke="#8b5a3c" stroke-width="4" stroke-linecap="round"/>
+        <!-- Apple body with bite -->
+        <path d="M40 110 Q40 45 100 45 Q160 45 160 110 Q160 175 100 175 Q55 175 45 135 Q125 130 130 110 Q125 90 45 85 Q40 95 40 110 Z" fill="#dc2626" stroke="#991b1b" stroke-width="3"/>
+        <!-- Highlight -->
+        <ellipse cx="75" cy="90" rx="20" ry="25" fill="#ef4444" opacity="0.6"/>
+        <!-- Bite mark inner -->
+        <ellipse cx="135" cy="110" rx="20" ry="25" fill="#fef2f2"/>
+      </svg>
+    `;
+    
+    // Text
+    const text = document.createElement('p');
+    text.className = 'text-center text-white text-lg mt-4 font-medium';
+    text.textContent = 'Click the apple...';
+    
+    modal.appendChild(appleContainer);
+    modal.appendChild(text);
+    overlay.appendChild(modal);
+    document.body.appendChild(overlay);
+    
+    // Animate in
+    requestAnimationFrame(() => {
+      modal.classList.remove('scale-95', 'opacity-0');
+      modal.classList.add('scale-100', 'opacity-100');
+    });
+    
+    // Apple click handler
+    appleContainer.addEventListener('click', () => {
+      const wholeApple = document.getElementById('whole-apple');
+      const bittenApple = document.getElementById('bitten-apple');
+      
+      // Show bitten apple
+      wholeApple?.classList.add('hidden');
+      bittenApple?.classList.remove('hidden');
+      text.textContent = '🍎';
+      
+      // Wait 500ms then close and play video
+      setTimeout(() => {
+        overlay.classList.add('opacity-0');
+        setTimeout(() => {
+          overlay.remove();
+          playBadApple();
+        }, 300);
+      }, 500);
+    });
+    
+    // Close on overlay click
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        overlay.classList.add('opacity-0');
+        setTimeout(() => overlay.remove(), 300);
+      }
+    });
+  }
+
+  function playBadApple() {
+    // Create video element
+    const video = document.createElement('video');
+    video.id = 'bad-apple-video';
+    video.className = 'fixed inset-0 w-full h-full object-cover z-[9998] opacity-0 transition-opacity duration-1000';
+    video.src = '/bad-apple.mp4';
+    video.autoplay = true;
+    video.loop = false;
+    video.muted = false;
+    
+    document.body.appendChild(video);
+    
+    // Fade in video
+    requestAnimationFrame(() => {
+      video.classList.remove('opacity-0');
+      video.classList.add('opacity-30');
+    });
+    
+    // Remove video when ended
+    video.addEventListener('ended', () => {
+      video.classList.add('opacity-0');
+      setTimeout(() => video.remove(), 1000);
+    });
+    
+    // Click to dismiss
+    video.addEventListener('click', () => {
+      video.classList.add('opacity-0');
+      setTimeout(() => video.remove(), 1000);
+    });
+  }
 </script>
