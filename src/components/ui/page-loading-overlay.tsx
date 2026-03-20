@@ -5,17 +5,30 @@ import { useEffect, useState } from 'react';
 import LoadingSpinner from '@/components/ui/snow-ball-loading-spinner';
 
 export function PageLoadingOverlay() {
-  const [loading, setLoading] = useState(true);
+  const [isVisible, setIsVisible] = useState(true);
+  const [isMounted, setIsMounted] = useState(true);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setLoading(false), 900);
-    return () => window.clearTimeout(timer);
+    const exitTimer = window.setTimeout(() => setIsVisible(false), 850);
+    return () => window.clearTimeout(exitTimer);
   }, []);
 
-  if (!loading) return null;
+  useEffect(() => {
+    if (isVisible) return;
+
+    const unmountTimer = window.setTimeout(() => setIsMounted(false), 260);
+    return () => window.clearTimeout(unmountTimer);
+  }, [isVisible]);
+
+  if (!isMounted) return null;
 
   return (
-    <div className="fixed inset-0 z-[7000] flex items-center justify-center bg-white/85 backdrop-blur-sm">
+    <div
+      className={`fixed inset-0 z-[7000] flex items-center justify-center bg-white/85 backdrop-blur-sm transition-opacity duration-300 ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      }`}
+      aria-hidden={!isVisible}
+    >
       <LoadingSpinner />
     </div>
   );
