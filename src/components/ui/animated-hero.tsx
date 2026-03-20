@@ -61,10 +61,7 @@ function Hero() {
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl leading-7 sm:leading-8 tracking-tight text-muted-foreground max-w-2xl text-center mx-auto px-2">
-              Denting, painting, mechanical repairs, welding, AC service, electrical
-              work, custom body kits, suspension setups, and detailing for cars,
-              bikes, and scooters. Built mobile-first for customers who just want
-              to call, visit, and get the job done fast.
+              Expert denting, painting, mechanical repairs, custom modding, and comprehensive services for cars, bikes, and scooters. Professional quality guaranteed. 
             </p>
           </div>
 

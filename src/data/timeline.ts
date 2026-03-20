@@ -1,5 +1,3 @@
-import { Handshake, Phone, Search, ShieldCheck, Wrench } from 'lucide-react';
-
 export const radialTimelineData = [
   {
     id: 1,
@@ -8,10 +6,10 @@ export const radialTimelineData = [
     content:
       'Customers start by calling the workshop or visiting directly with their vehicle and service requirement.',
     category: 'Contact',
-    icon: Phone,
+    icon: 'phone',
     relatedIds: [2],
     status: 'completed' as const,
-    energy: 100,
+    energy: 82,
   },
   {
     id: 2,
@@ -20,10 +18,10 @@ export const radialTimelineData = [
     content:
       'The vehicle is checked carefully so the issue, expected work, and likely scope become clear before service begins.',
     category: 'Inspection',
-    icon: Search,
+    icon: 'search',
     relatedIds: [1, 3],
     status: 'completed' as const,
-    energy: 88,
+    energy: 87,
   },
   {
     id: 3,
@@ -32,10 +30,10 @@ export const radialTimelineData = [
     content:
       'Mechanical work, denting, paint, electrical work, AC service, detailing, or custom fabrication is carried out based on the job.',
     category: 'Service',
-    icon: Wrench,
+    icon: 'wrench',
     relatedIds: [2, 4],
     status: 'in-progress' as const,
-    energy: 72,
+    energy: 92,
   },
   {
     id: 4,
@@ -44,10 +42,10 @@ export const radialTimelineData = [
     content:
       'The workshop reviews the finished work to make sure the repair, finish, fitment, or service result is ready for handover.',
     category: 'Quality',
-    icon: ShieldCheck,
+    icon: 'shieldCheck',
     relatedIds: [3, 5],
     status: 'pending' as const,
-    energy: 54,
+    energy: 96,
   },
   {
     id: 5,
@@ -56,9 +54,9 @@ export const radialTimelineData = [
     content:
       'Once the job is complete, the vehicle is handed back with the work explained clearly so the customer knows what was done.',
     category: 'Handover',
-    icon: Handshake,
+    icon: 'handshake',
     relatedIds: [4],
     status: 'pending' as const,
-    energy: 35,
+    energy: 100,
   },
 ];

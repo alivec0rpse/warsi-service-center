@@ -1,0 +1,94 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { FloatingNavDemo } from '@/components/ui/floating-navbar';
+import { Footer } from '@/components/ui/large-name-footer';
+import { PageLoadingOverlay } from '@/components/ui/page-loading-overlay';
+---
+
+<BaseLayout
+  title="Contact Warsi Service Center | Call 9756544613 | Auto Repair Shop Near You"
+  description="Contact Warsi Service Center for expert automobile service. Call 9756544613 or email adiwarsi953@gmail.com. Professional car, bike, and scooter service since 1962. Get a quote today!"
+  keywords="contact car service, automobile service near me, car garage contact, bike service phone number, auto repair contact, vehicle service center, warsi service center contact, 9756544613"
+  canonicalPath="/contact"
+>
+  <main class="min-h-screen bg-hero-wash">
+    <PageLoadingOverlay client:load />
+    <FloatingNavDemo client:load />
+
+    <section class="px-4 pb-10 pt-24 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-6xl">
+        <div class="mx-auto max-w-3xl text-center">
+          <p class="text-sm font-medium uppercase tracking-[0.22em] text-neutral-500">Get In Touch</p>
+          <h1 class="mt-4 text-3xl font-semibold tracking-tight text-neutral-900 sm:text-5xl">
+            Ready to service your vehicle? We're here to help.
+          </h1>
+          <p class="mx-auto mt-4 max-w-2xl text-sm leading-7 text-neutral-600 sm:text-base">
+            Contact us today for professional automobile service. Our team is ready to assist you with any questions or service needs.
+          </p>
+        </div>
+
+        <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div class="rounded-2xl border border-neutral-200 bg-white/90 p-6 shadow-sm">
+            <h2 class="text-lg font-semibold text-neutral-900">Call Us</h2>
+            <p class="mt-2 text-sm text-neutral-600">Speak directly with our team for immediate assistance.</p>
+            <a href="tel:9756544613" class="mt-4 inline-flex text-base font-semibold text-neutral-900 underline underline-offset-4">9756544613</a>
+          </div>
+          <div class="rounded-2xl border border-neutral-200 bg-white/90 p-6 shadow-sm">
+            <h2 class="text-lg font-semibold text-neutral-900">Email Us</h2>
+            <p class="mt-2 text-sm text-neutral-600">Send us a detailed message about your service needs.</p>
+            <a href="mailto:adiwarsi953@gmail.com" class="mt-4 inline-flex text-base font-semibold text-neutral-900 underline underline-offset-4">adiwarsi953@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="tel:9756544613" class="inline-flex h-11 items-center rounded-full bg-neutral-900 px-5 text-sm font-semibold text-white">Call 9756544613</a>
+          <a href="mailto:adiwarsi953@gmail.com" class="inline-flex h-11 items-center rounded-full border border-neutral-300 bg-white px-5 text-sm font-semibold text-neutral-900">Send Email</a>
+        </div>
+
+        <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_380px]">
+          <div class="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
+            <iframe
+              title="Warsi Service Center location map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3480.9637984389!2d79.53940757615342!3d29.254018955586382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a09ba50c512d7f%3A0xdec385b6745cebe5!2sWarsi%20Service%20Center!5e0!3m2!1sen!2sin!4v1767801569207!5m2!1sen!2sin"
+              class="h-[340px] w-full sm:h-[420px]"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            />
+          </div>
+
+          <div class="rounded-2xl border border-neutral-200 bg-white/90 p-6 shadow-sm">
+            <h2 class="text-lg font-semibold text-neutral-900">Visit Us</h2>
+            <ul class="mt-4 space-y-2 text-sm text-neutral-600">
+              <li><span class="font-medium text-neutral-900">Phone:</span> 9756544613</li>
+              <li><span class="font-medium text-neutral-900">Email:</span> adiwarsi953@gmail.com</li>
+              <li><span class="font-medium text-neutral-900">Website:</span> warsi.qzz.io</li>
+              <li>
+                <span class="font-medium text-neutral-900">Address:</span>
+                Warsi Service Center, Nainital, Uttarakhand, India
+              </li>
+            </ul>
+
+            <h3 class="mt-6 text-sm font-semibold uppercase tracking-[0.14em] text-neutral-500">What to expect</h3>
+            <ul class="mt-3 space-y-2 text-sm text-neutral-600">
+              <li>Quick response to your inquiries</li>
+              <li>Professional consultation</li>
+              <li>Transparent pricing estimates</li>
+              <li>Detailed service explanations</li>
+              <li>Friendly and helpful staff</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-10 rounded-3xl border border-neutral-200 bg-neutral-900 p-6 text-white sm:p-8">
+          <h2 class="text-2xl font-semibold sm:text-3xl">Explore Our Services</h2>
+          <p class="mt-3 max-w-2xl text-sm text-neutral-200 sm:text-base">
+            Discover the full range of professional automobile services we offer for cars, bikes, and scooters.
+          </p>
+          <a href="/services" class="mt-5 inline-flex h-11 items-center rounded-full bg-white px-5 text-sm font-semibold text-neutral-900">View All Services</a>
+        </div>
+      </div>
+    </section>
+
+    <Footer client:load />
+  </main>
+</BaseLayout>

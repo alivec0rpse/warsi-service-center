@@ -2,7 +2,10 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Hero } from '@/components/ui/animated-hero';
 import { FeaturesSectionWithHoverEffects } from '@/components/ui/feature-section-with-hover-effects';
+import { FloatingNavDemo } from '@/components/ui/floating-navbar';
+import { PageLoadingOverlay } from '@/components/ui/page-loading-overlay';
 import RadialOrbitalTimeline from '@/components/ui/radial-orbital-timeline';
+import { Footer } from '@/components/ui/large-name-footer';
 import { radialTimelineData } from '@/data/timeline';
 ---
 
@@ -11,6 +14,8 @@ import { radialTimelineData } from '@/data/timeline';
   description="Professional automobile service center in Nainital for denting, painting, mechanical repairs, welding, AC work, detailing, and custom modification services."
 >
   <main class="min-h-screen bg-hero-wash">
+    <PageLoadingOverlay client:load />
+    <FloatingNavDemo client:load />
     <section class="px-4 pt-6 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-6xl px-1 sm:px-2">
         <Hero client:load />
@@ -20,5 +25,7 @@ import { radialTimelineData } from '@/data/timeline';
     <FeaturesSectionWithHoverEffects client:load />
 
     <RadialOrbitalTimeline client:load timelineData={radialTimelineData} />
+
+    <Footer client:load />
   </main>
 </BaseLayout>

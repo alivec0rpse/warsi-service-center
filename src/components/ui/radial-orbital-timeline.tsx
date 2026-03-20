@@ -3,7 +3,12 @@
 import { useState, useEffect, useRef } from 'react';
 import {
   ArrowRight,
+  Handshake,
   Link,
+  Phone,
+  Search,
+  ShieldCheck,
+  Wrench,
   Zap,
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
@@ -16,11 +21,19 @@ interface TimelineItem {
   date: string;
   content: string;
   category: string;
-  icon: React.ElementType;
+  icon: 'phone' | 'search' | 'wrench' | 'shieldCheck' | 'handshake';
   relatedIds: number[];
   status: 'completed' | 'in-progress' | 'pending';
   energy: number;
 }
+
+const timelineIconMap: Record<TimelineItem['icon'], React.ElementType> = {
+  phone: Phone,
+  search: Search,
+  wrench: Wrench,
+  shieldCheck: ShieldCheck,
+  handshake: Handshake,
+};
 
 interface RadialOrbitalTimelineProps {
   timelineData: TimelineItem[];
@@ -231,9 +244,11 @@ export default function RadialOrbitalTimeline({
                   style={{ animationDelay: '0.5s' }}
                 />
                 <div className="text-center">
-                  <div className="mx-auto h-6 w-6 rounded-full bg-white/90 sm:h-7 sm:w-7 lg:h-8 lg:w-8" />
+                  <div className="mx-auto flex h-6 w-6 items-center justify-center rounded-full bg-white/90 text-neutral-900 sm:h-7 sm:w-7 lg:h-8 lg:w-8">
+                    <Wrench size={12} />
+                  </div>
                   <div className="mt-2 hidden text-[9px] font-semibold uppercase tracking-[0.24em] text-white/80 lg:block">
-                    Center
+                    Workshop
                   </div>
                 </div>
               </div>
@@ -258,7 +273,7 @@ export default function RadialOrbitalTimeline({
                 const isExpanded = expandedItems[item.id];
                 const isRelated = isRelatedToActive(item.id);
                 const isPulsing = pulseEffect[item.id];
-                const Icon = item.icon;
+                const Icon = timelineIconMap[item.icon];
 
                 const nodeStyle = {
                   transform: `translate(calc(-50% + ${position.x}px), calc(-50% + ${position.y}px))`,

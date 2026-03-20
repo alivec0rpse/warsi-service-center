@@ -4,9 +4,39 @@ import '@/styles/global.css';
 interface Props {
   title: string;
   description: string;
+  keywords?: string;
+  canonicalPath?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, keywords, canonicalPath = Astro.url.pathname } = Astro.props;
+const siteUrl = 'https://warsi.qzz.io';
+const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
+const ogImageUrl = new URL('/logo.png', siteUrl).toString();
+const autoRepairSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AutoRepair',
+  name: 'Warsi Service Center',
+  url: siteUrl,
+  telephone: '+91-9756544613',
+  email: 'adiwarsi953@gmail.com',
+  image: ogImageUrl,
+  description,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Nainital',
+    addressRegion: 'Uttarakhand',
+    addressCountry: 'IN',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 29.254019,
+    longitude: 79.5419825,
+  },
+  openingHours: 'Mo-Su',
+  foundingDate: '1962',
+  areaServed: 'India',
+  priceRange: '$$',
+};
 ---
 
 <!doctype html>
@@ -15,7 +45,23 @@ const { title, description } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
+    <meta name="author" content="Warsi Service Center" />
+    <meta name="robots" content="index, follow" />
+    <meta name="revisit-after" content="7 days" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImageUrl} />
+    <link rel="canonical" href={canonicalUrl} />
     <meta name="generator" content={Astro.generator} />
+    <script type="application/ld+json" set:html={JSON.stringify(autoRepairSchema)} />
     <title>{title}</title>
   </head>
   <body class="bg-background text-foreground">
