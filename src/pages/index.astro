@@ -2,6 +2,8 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Hero } from '@/components/ui/animated-hero';
 import { FeaturesSectionWithHoverEffects } from '@/components/ui/feature-section-with-hover-effects';
+import RadialOrbitalTimeline from '@/components/ui/radial-orbital-timeline';
+import { radialTimelineData } from '@/data/timeline';
 ---
 
 <BaseLayout
@@ -16,5 +18,7 @@ import { FeaturesSectionWithHoverEffects } from '@/components/ui/feature-section
     </section>
 
     <FeaturesSectionWithHoverEffects client:load />
+
+    <RadialOrbitalTimeline client:load timelineData={radialTimelineData} />
   </main>
 </BaseLayout>

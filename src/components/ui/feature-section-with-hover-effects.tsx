@@ -4,10 +4,10 @@ import {
   IconCircuitBulb,
   IconDroplet,
   IconEngine,
+  IconHammer,
   IconMapPin,
   IconPhoneCall,
   IconShieldCheck,
-  IconWrench,
 } from '@tabler/icons-react';
 
 export function FeaturesSectionWithHoverEffects() {
@@ -40,7 +40,7 @@ export function FeaturesSectionWithHoverEffects() {
       title: 'Custom body kits and modding',
       description:
         'Body kits, suspension setup, custom body parts, exhaust work, and personalization for customers who want more than routine service.',
-      icon: <IconWrench className="h-6 w-6" />,
+      icon: <IconHammer className="h-6 w-6" />,
     },
     {
       title: 'Built for cars, bikes, and scooters',
@@ -51,7 +51,7 @@ export function FeaturesSectionWithHoverEffects() {
     {
       title: 'Easy to call and visit',
       description:
-        'Most customers are mobile-first, so the site is centered around fast actions like calling, viewing services, and getting in touch quickly.',
+        'Clear contact details, direct call access, and a straightforward workshop experience help customers get answers without extra hassle.',
       icon: <IconPhoneCall className="h-6 w-6" />,
     },
     {
@@ -72,9 +72,9 @@ export function FeaturesSectionWithHoverEffects() {
           One workshop for repair, restoration, detailing, and custom work
         </h2>
         <p className="mt-4 text-sm leading-7 text-neutral-600 sm:text-base">
-          The service offering stays broad, but the experience should stay simple:
-          clear options, strong trust signals, and mobile-friendly actions for people
-          who usually arrive from their phone.
+          The service offering stays broad, but the experience stays simple:
+          clear options, strong trust signals, and practical help for customers
+          who need reliable workshop service.
         </p>
       </div>
 
