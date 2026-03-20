@@ -1,74 +1,12 @@
 ---
-// Base layout for all pages with SEO optimization
+import '@/styles/global.css';
+
 interface Props {
   title: string;
   description: string;
-  currentPath?: string;
-  keywords?: string;
 }
 
-const { title, description, currentPath = '/', keywords } = Astro.props;
-const canonicalURL = new URL(currentPath, Astro.site);
-const ogImageURL = new URL('/logo.png', Astro.site);
-
-// Structured data for local business
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "AutoRepair",
-  "name": "Warsi Service Center",
-  "description": description,
-  "url": canonicalURL.toString(),
-  "telephone": "+91-9756544613",
-  "email": "adiwarsi953@gmail.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Nainital",
-    "addressRegion": "Uttarakhand",
-    "addressCountry": "IN"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "29.254019",
-    "longitude": "79.5419825"
-  },
-  "priceRange": "$$",
-  "openingHours": "Mo-Su",
-  "foundingDate": "1962",
-  "areaServed": {
-    "@type": "Country",
-    "name": "India"
-  },
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Automobile Services",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Denting and Painting",
-          "description": "Expert dent removal and premium quality painting"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Mechanical Repairs",
-          "description": "Complete mechanical diagnostics and repairs"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Custom Modifications",
-          "description": "Custom body kits and performance modifications"
-        }
-      }
-    ]
-  }
-};
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -78,69 +16,9 @@ const structuredData = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
-    {keywords && <meta name="keywords" content={keywords} />}
-    
-    <!-- SEO Meta Tags -->
-    <meta name="robots" content="index, follow" />
-    <meta name="author" content="Warsi Service Center" />
-    <meta name="language" content="English" />
-    <meta name="revisit-after" content="7 days" />
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href={canonicalURL} />
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImageURL} />
-    <meta property="og:site_name" content="Warsi Service Center" />
-    <meta property="og:locale" content="en_IN" />
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={ogImageURL} />
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    
-    <!-- Preconnect to Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
     <title>{title}</title>
   </head>
-  <body>
+  <body class="bg-background text-foreground">
     <slot />
-    
-    <!-- Smooth scroll animation observer -->
-    <script>
-      // Intersection Observer for scroll animations
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, observerOptions);
-
-      // Observe all elements with animate-on-scroll class
-      document.addEventListener('DOMContentLoaded', () => {
-        const animatedElements = document.querySelectorAll('.animate-on-scroll');
-        animatedElements.forEach(el => observer.observe(el));
-      });
-    </script>
   </body>
 </html>

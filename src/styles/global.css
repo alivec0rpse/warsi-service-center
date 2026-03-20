@@ -1,134 +1,44 @@
-/* Global styles and CSS reset */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  * {
-    @apply border-workshop-border;
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 15%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 94%;
+    --accent-foreground: 0 0% 12%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 0 0% 25%;
   }
-  
+
+  * {
+    @apply border-border;
+  }
+
   html {
     @apply scroll-smooth;
   }
-  
+
   body {
-    @apply bg-workshop-darker text-gray-200 font-sans antialiased;
+    @apply m-0 min-h-screen bg-background font-sans text-foreground antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-semibold;
-  }
-}
-
-@layer components {
-  /* Button styles */
-  .btn {
-    @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300 inline-flex items-center gap-2;
-  }
-  
-  .btn-primary {
-    @apply bg-accent-navy hover:bg-accent-navy-light text-white shadow-lg shadow-accent-navy/20 hover:shadow-accent-navy/40 hover:scale-105 relative overflow-hidden;
-  }
-  
-  .btn-primary::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-  }
-  
-  .btn-primary:hover::before {
-    width: 300px;
-    height: 300px;
-  }
-  
-  .btn-secondary {
-    @apply bg-workshop-gray hover:bg-workshop-border text-gray-200 border border-workshop-border hover:border-accent-navy;
-  }
-  
-  .btn-outline {
-    @apply bg-transparent border-2 border-accent-navy text-accent-navy hover:bg-accent-navy hover:text-white;
-  }
-
-  /* Card styles */
-  .card {
-    @apply bg-workshop-gray border border-workshop-border rounded-lg p-6 transition-all duration-300;
-  }
-  
-  .card-hover {
-    @apply hover:border-accent-navy hover:shadow-xl hover:shadow-accent-navy/20 hover:-translate-y-2 cursor-pointer;
-  }
-
-  /* Section styles */
-  .section {
-    @apply py-16 px-4 md:py-24;
-  }
-  
-  .container-custom {
-    @apply max-w-7xl mx-auto;
-  }
-
-  /* Gradient text */
-  .gradient-text {
-    @apply bg-gradient-to-r from-accent-navy-light to-accent-steel bg-clip-text text-transparent;
-  }
-
-  /* Accent line */
-  .accent-line {
-    @apply w-20 h-1 bg-accent-navy rounded-full;
-  }
-}
-
-@layer utilities {
-  /* Custom animations */
-  .animate-on-scroll {
-    @apply opacity-0 translate-y-8 transition-all duration-700;
-  }
-  
-  .animate-on-scroll.visible {
-    @apply opacity-100 translate-y-0;
-  }
-
-  /* Grid pattern background */
-  .grid-pattern {
-    background-image: 
-      linear-gradient(rgba(30, 58, 138, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(30, 58, 138, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-  }
-
-  /* Glow effect */
-  .glow-orange {
-    box-shadow: 0 0 30px rgba(30, 58, 138, 0.4), 0 0 60px rgba(30, 58, 138, 0.2);
-  }
-  
-  .glow-blue {
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
-  }
-  
-  /* Shimmer effect for highlights */
-  @keyframes shimmer {
-    0% { background-position: -1000px 0; }
-    100% { background-position: 1000px 0; }
-  }
-  
-  .shimmer {
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(59, 130, 246, 0.1) 50%,
-      transparent 100%
-    );
-    background-size: 1000px 100%;
-    animation: shimmer 3s infinite;
+  a,
+  button {
+    @apply touch-manipulation;
   }
 }

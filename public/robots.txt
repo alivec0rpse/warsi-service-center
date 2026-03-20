@@ -1,7 +1,0 @@
-# robots.txt for Warsi Service Center
-User-agent: *
-Allow: /
-Disallow: /admin/
-Disallow: /_astro/
-
-Sitemap: https://warsi.qzz.io/sitemap.xml

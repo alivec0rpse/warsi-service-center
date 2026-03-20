@@ -4,37 +4,50 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Dark workshop theme colors
-        'workshop-dark': '#0a0a0a',
-        'workshop-darker': '#050505',
-        'workshop-gray': '#1a1a1a',
-        'workshop-border': '#2a2a2a',
-        'accent-navy': '#1e3a8a',
-        'accent-navy-light': '#3b82f6',
-        'accent-steel': '#71717a',
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
+        },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
+        },
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
+        },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
+        },
+        'mono-900': '#111111',
+        'mono-700': '#404040',
+        'mono-500': '#737373',
+        'mono-200': '#e5e5e5',
+        'mono-100': '#f5f5f5'
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Rajdhani', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
       },
-      animation: {
-        'fade-in': 'fadeIn 0.6s ease-in-out',
-        'slide-up': 'slideUp 0.6s ease-out',
-        'slide-down': 'slideDown 0.6s ease-out',
+      boxShadow: {
+        soft: '0 20px 50px rgba(15, 23, 42, 0.08)',
       },
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        slideUp: {
-          '0%': { transform: 'translateY(20px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
-        },
-        slideDown: {
-          '0%': { transform: 'translateY(-20px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
-        },
+      backgroundImage: {
+        'hero-wash':
+          'radial-gradient(circle at top left, rgba(255,255,255,0.85), transparent 30%), radial-gradient(circle at top right, rgba(212,212,212,0.45), transparent 28%), linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(250,250,250,1) 55%, rgba(245,245,245,1) 100%)',
       },
     },
   },

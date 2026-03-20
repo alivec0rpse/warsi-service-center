@@ -1,31 +1,17 @@
 import { defineConfig } from 'astro/config';
+import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
+import { fileURLToPath } from 'node:url';
 
-// https://astro.build/config
 export default defineConfig({
-  // GitHub Pages deployment configuration
   site: 'https://warsi.qzz.io',
-  base: '/',
-  
-  // Enable Tailwind CSS integration
-  integrations: [tailwind()],
-  
-  // Build configuration for optimal performance
-  build: {
-    inlineStylesheets: 'always',
-    assets: '_astro',
-  },
-  
-  // Compression and optimization
-  compressHTML: true,
-  
-  // Output configuration
+  integrations: [tailwind(), react()],
   output: 'static',
-  
-  // Vite configuration for asset handling
   vite: {
-    build: {
-      assetsInlineLimit: 0,
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+      },
     },
   },
 });
